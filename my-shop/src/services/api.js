@@ -1,4 +1,4 @@
-const BASE_URL = 'https://692f84ad778bbf9e006daf21.mockapi.io/products'
+const BASE_URL = 'https://692f84ad778bbf9e006daf21.mockapi.io/products/products'
 
 async function handleResponse(res, defaultMessage) {
   if (res.ok) return res.json()
