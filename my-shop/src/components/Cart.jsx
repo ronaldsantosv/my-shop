@@ -1,40 +1,55 @@
+import { FaMinus, FaPlus, FaTrash } from 'react-icons'
+import { useCart } from '../contexts/CartContext.jsx'
 
-export default function Cart({ cart, addToCart, removeFromCart }) {
-  const total = cart.reduce((acc, it) => acc + it.price * it.qty, 0)
+export default function Cart() {
+  const { items, addItem, removeItem, clearCart, total } = useCart()
+
+  if (items.length === 0) {
+    return <p className="alert" role="status">Tu carrito está vacío.</p>
+  }
 
   return (
-    <section>
-      <h2>Carrito</h2>
+    <section aria-label="Carrito de compras" className="card p-4 shadow-sm">
+      <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+        <h2 style={{ margin: 0 }}>Carrito</h2>
+        <button className="btn btn-outline" onClick={clearCart} aria-label="Vaciar carrito"><FaTrash /> Vaciar</button>
+      </div>
 
-      {cart.length === 0 ? (
-        <p>Tu carrito está vacío.</p>
-      ) : (
-        <>
-          <ul className="cart-list">
-            {cart.map(item => (
-              <li key={item.id} className="cart-row">
-                <img src={item.image} alt={item.title} />
-                <div className="info">
-                  <h4>{item.title}</h4>
-                  <p>$ {item.price.toFixed(2)}</p>
+      <ul className="list-group">
+        {items.map(item => {
+          const label = item.name || item.title
+          return (
+          <li key={item.id} className="list-group-item d-flex justify-content-between gap-3 align-items-center">
+            <div className="d-flex align-items-center gap-3">
+              <img src={item.image} alt={label} style={{ width: 64, height: 64, objectFit: 'cover', borderRadius: 8 }} />
+              <div>
+                <h4 style={{ margin: '0 0 .25rem' }}>{label}</h4>
+                <small className="text-muted">$ {Number(item.price || 0).toFixed(2)}</small>
+              </div>
+            </div>
 
-                  <div className="qty">
-                    <button className="btn-qty" onClick={() => removeFromCart(item.id)}>-</button>
-                    <span>{item.qty}</span>
-                    <button className="btn-qty" onClick={() => addToCart(item)}>+</button>
-                  </div>
-                </div>
+            <div className="d-flex align-items-center gap-2">
+              <button className="btn btn-outline" onClick={() => removeItem(item.id)} aria-label="Quitar unidad">
+                <FaMinus />
+              </button>
+              <strong>{item.qty}</strong>
+              <button className="btn btn-outline" onClick={() => addItem(item)} aria-label="Agregar unidad">
+                <FaPlus />
+              </button>
+            </div>
 
-                <div className="line-total">$ {(item.price * item.qty).toFixed(2)}</div>
-              </li>
-            ))}
-          </ul>
+            <div style={{ minWidth: 110, textAlign: 'end', fontWeight: 700 }}>
+              $ {(Number(item.price || 0) * item.qty).toFixed(2)}
+            </div>
+          </li>
+          )
+        })}
+      </ul>
 
-          <h3>Total: $ {total.toFixed(2)}</h3>
-        </>
-      )}
+      <div className="d-flex justify-content-between align-items-center mt-3">
+        <strong>Total</strong>
+        <strong>$ {total.toFixed(2)}</strong>
+      </div>
     </section>
   )
 }
-
-
