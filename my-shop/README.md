@@ -1,82 +1,31 @@
-# React + Vite
+# Mi Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+App React con Vite que consume MockAPI para un CRUD completo de productos, carrito protegido y autenticación simulada.
 
-Currently, two official plugins are available:
+## Requerimientos cubiertos
+- Carrito con Context API, persistencia y rutas protegidas por autenticación.
+- CRUD contra `https://692f84ad778bbf9e006daf21.mockapi.io/products` con validación, edición y modal de confirmación al borrar.
+- Búsqueda y paginación en el catálogo público.
+- Diseño responsivo basado en clases de Bootstrap + componentes creados con styled-components.
+- Notificaciones tipo toast y uso de íconos accesibles.
+- Helmet para SEO (title y meta dinámicos).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
+1. Instala las dependencias (pnpm recomendado):
+   ```bash
+   pnpm install
+   ```
+2. Ejecuta el proyecto en modo desarrollo:
+   ```bash
+   pnpm run dev
+   ```
+3. Compila para producción:
+   ```bash
+   pnpm run build
+   ```
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-Funcionalidad
-
-Layout con Header (Navbar) y Footer.
-
-Listado de productos en Home (API FakeStore).
-
-Sección “Moda” como ruta estática adicional.
-
-Detalle de producto con ruta dinámica.
-
-Carrito con useState en App.jsx (agregar/eliminar, total).
-
-Manejo de carga y errores al consumir la API.
-
-Navegación con react-router-dom.
-
-Rutas
-
-/ → Inicio (lista de productos)
-
-/moda → Sección moda (filtra ropa)
-
-/producto/:id → Detalle de producto
-
-/carrito → Carrito
-
-Componentes
-
-ProductCard (Producto) separado del Cart (Carrito).
-
-Layout agrupa Header + Navbar + Footer.
-
-API
-
-Base: https://fakestoreapi.com
-
-Endpoints usados:
-
-GET /products (Home y Moda)
-
-GET /products/:id (Detalle)
-
-Implementado en src/services/api.js con fetch.
-
-Estado y efectos
-
-useState para el carrito en App.jsx.
-
-useEffect para cargar productos en Home.jsx, Moda.jsx y detalle en ProductDetail.jsx.
-
-Estados de loading y error en cada página que consume la API.
-
-Cómo probar
-
-Iniciar el servidor con pnpm run dev.
-
-Navegar entre Inicio, Moda y Carrito desde el Navbar.
-
-Agregar productos al carrito desde las cards y desde el detalle.
-
-Verificar incremento/disminución en el Carrito.
-
-
-
-
+## Uso
+- Inicia sesión desde **/login** (email y contraseña cualquiera) para acceder al carrito y al panel **/admin**.
+- En el panel administra productos (crear, editar, borrar) conectados a MockAPI.
+- El catálogo público incluye buscador, paginador y filtro por categoría "Moda" en la ruta **/moda**.
+- Las notificaciones muestran el resultado de las operaciones y los errores de red.
