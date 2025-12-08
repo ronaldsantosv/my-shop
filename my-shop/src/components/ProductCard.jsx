@@ -36,16 +36,13 @@ export default function ProductCard({ product, onAdd }) {
         </Thumb>
       </Link>
 
-      <div className="card-body">
-        <Title>
-          <Link to={`/producto/${product.id}`}>{name}</Link>
-        </Title>
-        <p className="card-text">{product.category}</p>
-<<<<<<< HEAD
-        <p className="card-text"><strong>$ {formatPrice(product.price)}</strong></p>
-<p className="card-text">{product.category}</p>
-<p className="card-text"><strong>$ {formatPrice(product.price)}</strong></p>
-      </div>
+<div className="card-body">
+  <Title>
+    <Link to={`/producto/${product.id}`}>{name}</Link>
+  </Title>
+  <p className="card-text">{product.category}</p>
+  <p className="card-text"><strong>$ {formatPrice(product.price)}</strong></p>
+</div>
     </Card>
   )
 }
