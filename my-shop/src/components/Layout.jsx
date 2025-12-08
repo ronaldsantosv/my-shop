@@ -1,20 +1,17 @@
-
 import { Outlet } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import Navbar from './Navbar.jsx'
 import Footer from './Footer.jsx'
 
-export default function Layout({ cartCount = 0 }) {
+export default function Layout() {
   return (
-    <div className="app">
-      <header>
-        <Navbar cartCount={cartCount} />
-      </header>
+    <div className="bg-light">
+      <Navbar />
       <main className="container">
         <Outlet />
       </main>
       <Footer />
+      <ToastContainer position="top-right" />
     </div>
   )
 }
-
-
