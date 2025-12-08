@@ -4,6 +4,10 @@ import Helmet from 'react-helmet'
 import { useCart } from '../contexts/CartContext.jsx'
 import { getProductById } from '../services/api.js'
 import { useProducts } from '../contexts/ProductsContext.jsx'
+<<<<<<< HEAD
+import { formatPrice } from '../lib/format.js'
+=======
+>>>>>>> main
 
 export default function ProductDetail() {
   const { id } = useParams()
@@ -53,7 +57,11 @@ export default function ProductDetail() {
           <h2>{product.name}</h2>
           <p className="badge">{product.category}</p>
           <p>{product.description}</p>
+<<<<<<< HEAD
+          <h3>$ {formatPrice(product.price)}</h3>
+=======
           <h3>$ {Number(product.price || 0).toFixed(2)}</h3>
+>>>>>>> main
           <button className="btn" onClick={() => addItem(product)} aria-label="Agregar al carrito">
             Agregar al carrito
           </button>
