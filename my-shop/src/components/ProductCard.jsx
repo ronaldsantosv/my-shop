@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { FaPlus } from 'react-icons'
+import { formatPrice } from '../lib/format.js'
 
 const Card = styled.article`
   display: grid;
@@ -35,16 +36,13 @@ export default function ProductCard({ product, onAdd }) {
         </Thumb>
       </Link>
 
-      <div className="card-body">
-        <Title>
-          <Link to={`/producto/${product.id}`}>{name}</Link>
-        </Title>
-        <p className="card-text">{product.category}</p>
-        <p className="card-text"><strong>$ {Number(product.price || 0).toFixed(2)}</strong></p>
-        <button className="btn" onClick={() => onAdd?.(product)} aria-label={`Agregar ${name}`}>
-          <FaPlus /> Agregar al carrito
-        </button>
-      </div>
+<div className="card-body">
+  <Title>
+    <Link to={`/producto/${product.id}`}>{name}</Link>
+  </Title>
+  <p className="card-text">{product.category}</p>
+  <p className="card-text"><strong>$ {formatPrice(product.price)}</strong></p>
+</div>
     </Card>
   )
 }

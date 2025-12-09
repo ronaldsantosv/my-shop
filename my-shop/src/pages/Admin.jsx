@@ -4,6 +4,7 @@ import { FaEdit, FaSearch, FaTrash } from 'react-icons'
 import ProductForm from '../components/ProductForm.jsx'
 import { useProducts } from '../contexts/ProductsContext.jsx'
 import ConfirmModal from '../components/ConfirmModal.jsx'
+import { formatPrice } from '../lib/format.js'
 
 export default function Admin() {
   const { products, loading, error, addProduct, editProduct, removeProduct } = useProducts()
@@ -93,7 +94,7 @@ export default function Admin() {
                           </div>
                         </div>
                       </td>
-                      <td>$ {Number(p.price || 0).toFixed(2)}</td>
+                      <td>$ {formatPrice(p.price)}</td>
                       <td><span className="badge">{p.category}</span></td>
                       <td className="text-end">
                         <div className="d-flex gap-2 justify-content-end">
