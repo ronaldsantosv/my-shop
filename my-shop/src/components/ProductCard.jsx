@@ -31,7 +31,7 @@ export default function ProductCard({ product, onAdd }) {
     <Card className="card">
       <Link to={`/producto/${product.id}`}>
         <Thumb>
-          <img src={product.image} alt={name} style={{ width: '100%', height: 190, objectFit: 'cover' }} />
+          <img src={product.image} alt={name} style={{ width: '60%', height: 200, objectFit: 'cover' }} />
         </Thumb>
       </Link>
 
