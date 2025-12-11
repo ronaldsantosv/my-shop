@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 
 const AuthContext = createContext(null)
 
-// opcional: lee credenciales admin desde env (Vite)
+
 const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL || 'admin@admin.com'
 const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || '1234'
 
