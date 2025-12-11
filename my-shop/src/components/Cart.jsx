@@ -13,7 +13,10 @@ export default function Cart() {
     <section aria-label="Carrito de compras" className="card p-4 shadow-sm">
       <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
         <h2 style={{ margin: 0 }}>Carrito</h2>
-        <button className="btn btn-outline" onClick={clearCart} aria-label="Vaciar carrito"><FaTrash /> Vaciar</button>
+        <div className="d-flex gap-2">
+          <button className="btn btn-outline" onClick={clearCart} aria-label="Vaciar carrito"><FaTrash /> Vaciar</button>
+          <button className="btn btn-primary" aria-label="Comprar">Comprar</button>
+        </div>
       </div>
 
       <ul className="list-group">
