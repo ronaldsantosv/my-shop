@@ -17,7 +17,7 @@ export default function Navbar() {
         <div className="links">
           <NavLink to="/" end>Inicio</NavLink>
           <NavLink to="/moda">Moda</NavLink>
-          <NavLink to="/admin">Admin</NavLink>
+          {user?.role === 'admin' && <NavLink to="/admin">Admin</NavLink>}
           <NavLink to="/carrito">
             <FaShoppingCart /> Carrito ({count})
           </NavLink>
