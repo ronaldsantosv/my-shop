@@ -25,7 +25,7 @@ export default function Cart() {
           return (
           <li key={item.id} className="list-group-item d-flex justify-content-between gap-3 align-items-center">
             <div className="d-flex align-items-center gap-3">
-              <img src={item.image} alt={label} style={{ width: 64, height: 64, objectFit: 'cover', borderRadius: 8 }} />
+              <img src={item.image} alt={label} style={{ width: 100, height: 100, objectFit: 'cover', borderRadius: 8 }} />
               <div>
                 <h4 style={{ margin: '0 0 .25rem' }}>{label}</h4>
                 <small className="text-muted">$ {formatPrice(item.price)}</small>

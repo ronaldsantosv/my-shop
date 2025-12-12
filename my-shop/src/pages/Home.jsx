@@ -41,7 +41,7 @@ export default function Home() {
 
       <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-3">
         <div>
-          <p className="badge">Catálogo público</p>
+          
           <h2 style={{ margin: 0 }}>Productos destacados</h2>
         </div>
         <div className="search" aria-label="Buscador de productos">
